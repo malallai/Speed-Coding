@@ -1,4 +1,6 @@
-name: Episode1
+name: SimAPI
 author: mentor6561
-main: fr.mentor6561.episode1.Main
+main: fr.mentor6561.sim.SimAPI
 version: 1.0.0
+commands:
+  sim:

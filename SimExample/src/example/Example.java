@@ -1,4 +1,4 @@
-package fr.mentor6561.sim.examples;
+package example;
 
 import fr.mentor6561.sim.api.SimInventory;
 import fr.mentor6561.sim.api.SimItem;
@@ -7,9 +7,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.ItemStack;
 
-public class ExampleInventory extends SimInventory {
+public class Example extends SimInventory {
 
-    public ExampleInventory() {
+    public Example() {
         super(InventoryType.HOPPER, "Example");
     }
 

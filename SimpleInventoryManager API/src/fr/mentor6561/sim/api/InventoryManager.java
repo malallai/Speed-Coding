@@ -5,17 +5,17 @@ import java.util.Map;
 
 public class InventoryManager {
 
-    private static Map<String, CustomInventory> inventorys = new HashMap<String, CustomInventory>();
+    private static Map<String, SimInventory> inventorys = new HashMap<String, SimInventory>();
 
-    public static Map<String, CustomInventory> getInventorys() {
+    public static Map<String, SimInventory> getInventorys() {
         return inventorys;
     }
 
-    public void registerNewInventory(String id, CustomInventory inventory) {
+    public void registerNewInventory(String id, SimInventory inventory) {
         inventorys.put(id, inventory);
     }
 
-    public CustomInventory getInventory(String id) {
+    public SimInventory getInventory(String id) {
         return inventorys.get(id);
     }
 

@@ -1,7 +1,7 @@
 package fr.mentor6561.sim.listeners;
 
 import fr.mentor6561.sim.SimAPI;
-import fr.mentor6561.sim.api.CustomInventory;
+import fr.mentor6561.sim.api.SimInventory;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -13,10 +13,11 @@ public class InventoryClick implements Listener {
     public void onInventoryClick(InventoryClickEvent event) {
         if(event.getWhoClicked() instanceof Player) {
             if(event.getInventory().getName() != null) {
-                for(CustomInventory inventory : SimAPI.getApi().getManager().getInventorys().values()) {
+                for(SimInventory inventory : SimAPI.getApi().getManager().getInventorys().values()) {
                     if(event.getInventory().getName().equalsIgnoreCase(inventory.getInventory().getName())) {
                         inventory.onClick((Player) event.getWhoClicked(), event.getSlot(), event.getCurrentItem());
                         event.setCancelled(true);
+                        break;
                     }
                 }
             }

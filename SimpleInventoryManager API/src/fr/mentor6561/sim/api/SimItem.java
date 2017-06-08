@@ -14,7 +14,7 @@ import org.bukkit.material.MaterialData;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UtilItem extends ItemStack {
+public class SimItem extends ItemStack {
 
     public static Material[] ENUM$DATA = (new Material[]{Material.STONE, Material.WOOD, Material.SPONGE,
             Material.SANDSTONE, Material.WOOL, Material.STEP, Material.STAINED_GLASS, Material.SMOOTH_BRICK,
@@ -25,11 +25,11 @@ public class UtilItem extends ItemStack {
 
     public static Material[] ENUM$EXCEPTION = (new Material[]{Material.INK_SACK});
 
-    public UtilItem() {
+    public SimItem() {
     }
 
     @SuppressWarnings("deprecation")
-    public UtilItem(ItemStack s) {
+    public SimItem(ItemStack s) {
         this.setType(s.getType());
         this.setDurability(s.getDurability());
         if (s.getItemMeta() != null) {
@@ -64,26 +64,26 @@ public class UtilItem extends ItemStack {
         return check1;
     }
 
-    public UtilItem setAmount2(int value) {
+    public SimItem setAmount2(int value) {
         this.setAmount(value);
         return this;
     }
 
-    public UtilItem createItem(Material material, int amount, int data) {
+    public SimItem createItem(Material material, int amount, int data) {
         this.setType(material);
         this.setAmount(amount);
         this.setDurability((short) data);
         return this;
     }
 
-    public UtilItem createItem(Material material, int amount, MaterialData data) {
+    public SimItem createItem(Material material, int amount, MaterialData data) {
         this.setType(material);
         this.setAmount(amount);
         this.setData(data);
         return this;
     }
 
-    public UtilItem createItem(Material material) {
+    public SimItem createItem(Material material) {
         this.setType(material);
         this.setAmount(1);
         return this;
@@ -93,14 +93,14 @@ public class UtilItem extends ItemStack {
         return this.getItemMeta().getDisplayName();
     }
 
-    public UtilItem setName(String name) {
+    public SimItem setName(String name) {
         ItemMeta meta = getItemMeta();
         meta.setDisplayName(name);
         this.setItemMeta(meta);
         return this;
     }
 
-    public UtilItem setLore(String... lore) {
+    public SimItem setLore(String... lore) {
         ItemMeta          meta = getItemMeta();
         ArrayList<String> list = new ArrayList<String>();
         if (lore.length > 0) {
@@ -115,7 +115,7 @@ public class UtilItem extends ItemStack {
         return this;
     }
 
-    public UtilItem setLore(List<String> lore) {
+    public SimItem setLore(List<String> lore) {
         ItemMeta meta = getItemMeta();
         if (lore != null)
             meta.setLore(lore);
@@ -123,7 +123,7 @@ public class UtilItem extends ItemStack {
         return this;
     }
 
-    public UtilItem addLore(List<String> lore) {
+    public SimItem addLore(List<String> lore) {
         ItemMeta meta = getItemMeta();
         if (getLore() != null) {
             List<String> defaultLore = getLore();
@@ -136,7 +136,7 @@ public class UtilItem extends ItemStack {
         return this;
     }
 
-    public UtilItem addLore(String... lore) {
+    public SimItem addLore(String... lore) {
         ItemMeta meta = getItemMeta();
         if (getLore() != null) {
             ArrayList<String> list = new ArrayList<String>();
@@ -159,18 +159,18 @@ public class UtilItem extends ItemStack {
         return this.getItemMeta().getLore();
     }
 
-    public UtilItem addEnchantement(int level, Enchantment... enchant) {
+    public SimItem addEnchantement(int level, Enchantment... enchant) {
         for (Enchantment ench : enchant) {
             this.addUnsafeEnchantment(ench, level);
         }
         return this;
     }
 
-    public UtilItem setOwner(OfflinePlayer off) {
+    public SimItem setOwner(OfflinePlayer off) {
         return setOwner(off.getName());
     }
 
-    public UtilItem addPatern(Pattern a) {
+    public SimItem addPatern(Pattern a) {
         if (this.getType().equals(Material.BANNER) || this.getType().equals(Material.STANDING_BANNER)
                 || this.getType().equals(Material.WALL_BANNER)) {
             BannerMeta meta = (BannerMeta) getItemMeta();
@@ -179,7 +179,7 @@ public class UtilItem extends ItemStack {
         return this;
     }
 
-    public UtilItem setBaseColor(DyeColor a) {
+    public SimItem setBaseColor(DyeColor a) {
         if (this.getType().equals(Material.BANNER) || this.getType().equals(Material.STANDING_BANNER)
                 || this.getType().equals(Material.WALL_BANNER)) {
             BannerMeta meta = (BannerMeta) getItemMeta();
@@ -188,7 +188,7 @@ public class UtilItem extends ItemStack {
         return this;
     }
 
-    public UtilItem setOwner(String player) {
+    public SimItem setOwner(String player) {
         try {
             if (!player.equals(null)) {
                 if (this.getType().equals(Material.SKULL_ITEM) && this.getDurability() == 3) {
@@ -202,7 +202,7 @@ public class UtilItem extends ItemStack {
         return this;
     }
 
-    public UtilItem translateColor(byte color) {
+    public SimItem translateColor(byte color) {
         switch (color) {
             case 0:
                 setColor(25, 25, 25);
@@ -258,7 +258,7 @@ public class UtilItem extends ItemStack {
         return this;
     }
 
-    public UtilItem setColor(String string) {
+    public SimItem setColor(String string) {
         if (!string.equals("null")) {
             setColor(Integer.parseInt(string.split(" ")[0]), Integer.parseInt(string.split(" ")[1]),
                     Integer.parseInt(string.split(" ")[2]));
@@ -266,7 +266,7 @@ public class UtilItem extends ItemStack {
         return this;
     }
 
-    public UtilItem addPage(String... string) {
+    public SimItem addPage(String... string) {
         if (this.getType().equals(Material.WRITTEN_BOOK)) {
             BookMeta meta = (BookMeta) this.getItemMeta();
             meta.addPage(string);
@@ -275,7 +275,7 @@ public class UtilItem extends ItemStack {
         return this;
     }
 
-    public UtilItem setAuthor(String name) {
+    public SimItem setAuthor(String name) {
         if (this.getType().equals(Material.WRITTEN_BOOK)) {
             BookMeta meta = (BookMeta) this.getItemMeta();
             meta.setAuthor(name);
@@ -284,7 +284,7 @@ public class UtilItem extends ItemStack {
         return this;
     }
 
-    public UtilItem setTitle(String name) {
+    public SimItem setTitle(String name) {
         if (this.getType().equals(Material.WRITTEN_BOOK)) {
             BookMeta meta = (BookMeta) this.getItemMeta();
             meta.setTitle(name);
@@ -293,7 +293,7 @@ public class UtilItem extends ItemStack {
         return this;
     }
 
-    public UtilItem setColor(int red, int green, int blue) {
+    public SimItem setColor(int red, int green, int blue) {
         String redd   = "" + red;
         String greenn = "" + green;
         String bluee  = "" + blue;
@@ -358,7 +358,7 @@ public class UtilItem extends ItemStack {
         return stack;
     }
 
-    public UtilItem translateItem(String[] args, Player player) {
+    public SimItem translateItem(String[] args, Player player) {
         System.out.println(args.toString() + " " + args.length);
         createItem(Material.getMaterial(Integer.parseInt(args[0])),
                 Integer.parseInt(args[1]), Integer.parseInt(args[2]));

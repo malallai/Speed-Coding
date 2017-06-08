@@ -1,47 +1,36 @@
 package fr.mentor6561.sim;
 
-import fr.mentor6561.sim.api.CustomInventory;
+import fr.mentor6561.sim.api.SimInventory;
 import fr.mentor6561.sim.api.InventoryManager;
-import fr.mentor6561.sim.commands.SimAPICommand;
 import fr.mentor6561.sim.examples.ExampleInventory;
-import fr.mentor6561.sim.listeners.InventoryClick;
-import org.bukkit.plugin.java.JavaPlugin;
 
-public class SimAPI extends JavaPlugin {
+public class SimAPI {
 
     private static SimAPI api;
 
     private InventoryManager manager;
 
+    public SimAPI() {
+        api = this;
+
+        manager = new InventoryManager();
+        registerNewInventory("example", new ExampleInventory());
+    }
+
     public static SimAPI getApi() {
         return api;
     }
 
-    public void registerNewInventory(String id, CustomInventory inventory) {
+    public void registerNewInventory(String id, SimInventory inventory) {
         manager.registerNewInventory(id, inventory);
     }
 
-    public CustomInventory getInventory(String id) {
+    public SimInventory getInventory(String id) {
         return manager.getInventory(id);
     }
 
     public InventoryManager getManager() {
         return manager;
-    }
-
-    public void onEnable() {
-        api = this;
-        manager = new InventoryManager();
-
-        getCommand("sim").setExecutor(new SimAPICommand());
-        getServer().getPluginManager().registerEvents(new InventoryClick(), this);
-
-        registerNewInventory("example", new ExampleInventory());
-
-    }
-
-    public void onDisable() {
-
     }
 
 }

@@ -7,29 +7,29 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 
-public abstract class CustomInventory {
+public abstract class SimInventory {
 
     public Inventory inventory;
 
-    public CustomInventory(InventoryHolder inventoryHolder, InventoryType inventoryType, String name) {
+    public SimInventory(InventoryHolder inventoryHolder, InventoryType inventoryType, String name) {
         this.inventory = Bukkit.createInventory(inventoryHolder, inventoryType, name);
         registerItems();
     }
 
-    public CustomInventory(InventoryHolder inventoryHolder, int slot, String name) {
+    public SimInventory(InventoryHolder inventoryHolder, int slot, String name) {
         this.inventory = Bukkit.createInventory(inventoryHolder, slot, name);
         registerItems();
     }
 
-    public CustomInventory(int slot, String name) {
+    public SimInventory(int slot, String name) {
         this(null, slot, name);
     }
 
-    public CustomInventory(InventoryType inventoryType, String name) {
+    public SimInventory(InventoryType inventoryType, String name) {
         this(null, inventoryType, name);
     }
 
-    public CustomInventory(String name) {
+    public SimInventory(String name) {
         this(null, 1*9, name);
     }
 

@@ -1,6 +1,6 @@
 name: SimAPI
 author: mentor6561
-main: fr.mentor6561.sim.SimAPI
+main: fr.mentor6561.sim.Sim
 version: 1.0.0
 commands:
   sim:

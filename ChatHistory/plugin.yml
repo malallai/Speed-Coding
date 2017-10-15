@@ -1,0 +1,6 @@
+name: ChatHistory
+author: mentor6561
+version: 1.0
+main: fr.mentor6561.chathistory.ChatHistory
+commands:
+  chathistory:

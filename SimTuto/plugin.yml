@@ -1,0 +1,5 @@
+name: SimTuto
+main: fr.mentor6561.simtuto.Main
+author: mentor6561
+version: 1.0
+depend: [SimAPI]
